@@ -15,7 +15,6 @@ final class FeatureAppsViewController: UICollectionViewController {
     }
     
     private func setupCells() {
-        collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: CategoryCell.cellid)
     }
     

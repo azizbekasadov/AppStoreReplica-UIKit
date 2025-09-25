@@ -12,7 +12,9 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         self.window = UIWindow(windowScene: windowScene)
         self.window?.rootViewController = UINavigationController(
-            rootViewController: FeatureAppsViewController()
+            rootViewController: FeatureAppsViewController(
+                collectionViewLayout: UICollectionViewFlowLayout()
+            )
         )
         self.window?.makeKeyAndVisible()
     }
