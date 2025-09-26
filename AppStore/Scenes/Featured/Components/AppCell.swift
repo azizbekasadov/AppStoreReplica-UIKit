@@ -1,19 +1,12 @@
-//
-//  AppCell.swift
-//  AppStore
-//
-//  Created by Azizbek Asadov on 26.09.2025.
-//
-
 import Foundation
 
 #if canImport(UIKit)
 import UIKit
 
-final class AppCell: UICollectionViewCell {
+class AppCell: UICollectionViewCell {
     static let cellid = "\(AppCell.self)'"
     
-    private let imageView: UIImageView = {
+    private(set) var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 16
@@ -75,7 +68,7 @@ final class AppCell: UICollectionViewCell {
         fatalError("Use Code only")
     }
     
-    func setAppModel(_ appModel: AppModel) {
+    final func setAppModel(_ appModel: AppModel) {
         self.data = appModel
         
         if let imageName = appModel.imageName {
@@ -98,7 +91,7 @@ final class AppCell: UICollectionViewCell {
         }
     }
     
-    private func setupViews() {
+    func setupViews() {
         contentView.addSubview(imageView)
         
         contentView.addConstraints(

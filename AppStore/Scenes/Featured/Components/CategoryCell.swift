@@ -1,16 +1,9 @@
-//
-//  CategoryCell.swift
-//  AppStore
-//
-//  Created by Azizbek Asadov on 26.09.2025.
-//
-
 import Foundation
 
 #if canImport(UIKit)
 import UIKit
 
-final class CategoryCell: UICollectionViewCell {
+class CategoryCell: UICollectionViewCell {
     static let cellid = "\(CategoryCell.self)'"
     
     private let titleLabel: UILabel = {
@@ -25,7 +18,7 @@ final class CategoryCell: UICollectionViewCell {
         return label
     }()
     
-    private lazy var appsCollectionView: UICollectionView = {
+    private(set) lazy var appsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         
@@ -37,7 +30,6 @@ final class CategoryCell: UICollectionViewCell {
         cv.showsHorizontalScrollIndicator = false
         cv.delegate = self
         cv.dataSource = self
-        cv.register(AppCell.self, forCellWithReuseIdentifier: AppCell.cellid)
         cv.translatesAutoresizingMaskIntoConstraints = false
         return cv
     }()
@@ -49,7 +41,7 @@ final class CategoryCell: UICollectionViewCell {
         return v
     }()
     
-    private var appCategory: AppCategory!
+    private(set) var appCategory: AppCategory!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -70,7 +62,9 @@ final class CategoryCell: UICollectionViewCell {
         appsCollectionView.reloadData()
     }
     
-    private func setupViews() {
+    func setupViews() {
+        appsCollectionView.register(AppCell.self, forCellWithReuseIdentifier: AppCell.cellid)
+        
         contentView.addSubview(titleLabel)
         contentView.addSubview(appsCollectionView)
         contentView.addSubview(dividerLine)

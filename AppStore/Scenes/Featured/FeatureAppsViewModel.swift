@@ -1,12 +1,4 @@
-//
-//  FeatureAppsViewModel.swift
-//  AppStore
-//
-//  Created by Azizbek Asadov on 26.09.2025.
-//
-
 import Foundation
-import Combine
 
 final class FeatureAppsViewModel {
     private(set) var appCategories: [AppCategory] = []
