@@ -1,7 +1,7 @@
 import UIKit
 
 final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    var window: UIWindow?
+    private(set) var coordinator: AppCoordinator!
     
     func scene(
         _ scene: UIScene,
@@ -10,12 +10,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     ) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
-        self.window = UIWindow(windowScene: windowScene)
-        self.window?.rootViewController = UINavigationController(
-            rootViewController: FeatureAppsViewController(
-                collectionViewLayout: UICollectionViewFlowLayout()
-            )
-        )
-        self.window?.makeKeyAndVisible()
+        coordinator = AppCoordinator(windowScene)
+        coordinator.start()
     }
 }

@@ -148,6 +148,19 @@ extension CategoryCell: UICollectionViewDataSource {
         cell.setAppModel(appCategory.app[indexPath.item])
         return cell
     }
+    
+//    func collectionView(
+//        _ collectionView: UICollectionView,
+//        didSelectItemAt indexPath: IndexPath
+//    ) {
+//        let model = appCategory.app[indexPath.item]
+//        handleOpenAppInfo(model)
+//    }
+//    
+//    private func handleOpenAppInfo(_ appInfo: AppModel) {
+//        let appInfoDetailsViewController = UIViewController()
+//        
+//    }
 }
 
 #endif
