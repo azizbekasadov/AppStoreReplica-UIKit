@@ -19,16 +19,17 @@ enum ASDestination: String, Identifiable {
 }
 
 protocol ASCoordinator {
-    func push(to destination: ASDestination)
+    func push(to destination: ASDestination, animated: Bool)
     func start()
-    func pop()
-    func popToRoot()
+    @discardableResult
+    func pop(animated: Bool) -> UIViewController?
+    func popToRoot(animated: Bool)
 }
 
 final class AppCoordinator: ASCoordinator {
     private var window: UIWindow!
     
-    private unowned(unsafe) var navigationController: UINavigationController!
+    private(set) weak var navigationController: UINavigationController?
     
     init(_ windowScene: UIWindowScene) {
         self.window = UIWindow(windowScene: windowScene)
@@ -39,35 +40,41 @@ final class AppCoordinator: ASCoordinator {
             collectionViewLayout: UICollectionViewFlowLayout()
         )
         
-        let navigationController = UINavigationController(
+        self.navigationController = UINavigationController(
             rootViewController: rootViewController
         )
         
-        window.rootViewController = navigationController
+        window.rootViewController = self.navigationController
         window.makeKeyAndVisible()
     }
     
-    func push(to destination: ASDestination) {
-        let viewController: UIViewController = {
-            switch destination {
-            case .appInfo:
-                return UIViewController()
-            }
-        }()
+    func push(to destination: ASDestination, animated: Bool = true) {
+        let viewController: UIViewController!
         
-        navigationController?.pushViewController(viewController, animated: true)
+        switch destination {
+        case .appInfo:
+            viewController = UIViewController()
+        }
+        
+        navigationController?.pushViewController(viewController, animated: animated)
     }
     
-    func pop() {
-        navigationController?.popViewController(animated: true)
+    @discardableResult
+    func pop(animated: Bool = true) -> UIViewController? {
+        navigationController?.popViewController(animated: animated)
     }
     
-    func popToRoot() {
+    func popToRoot(animated: Bool = true) {
         guard let root = navigationController?.viewControllers.first else {
             fatalError("Unable to find root")
         }
         
-        navigationController?.setViewControllers([root], animated: true)
+        navigationController?.setViewControllers([root], animated: animated)
+    }
+    
+    deinit {
+        self.navigationController = nil
+        self.window = nil
     }
 }
 
