@@ -19,7 +19,6 @@ final actor AppCategoriesNetworkService {
             from: "http://www.statsallday.com/appstore",
             pathComponent: "featured",
             httpMethod: .get
-            
         )
         
         return categories

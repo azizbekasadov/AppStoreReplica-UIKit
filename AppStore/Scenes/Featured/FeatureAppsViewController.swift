@@ -1,7 +1,7 @@
 #if canImport(UIKit)
 import UIKit
 
-final class FeatureAppsViewController: UICollectionViewController {
+final class FeatureAppsViewController: CoreCollectionViewController {
     
     private let viewModel: FeatureAppsViewModel
     
@@ -18,8 +18,19 @@ final class FeatureAppsViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupOrientationHandlers()
         setupCells()
         setupViews()
+    }
+    
+    private func setupOrientationHandlers() {
+        onPortraitOrientation = { [weak self] in
+            self?.collectionView.reloadData()
+        }
+        
+        onLandscapeOrientation = { [weak self] in
+            self?.collectionView.reloadData()
+        }
     }
     
     private func setupViews() {
@@ -83,10 +94,9 @@ extension FeatureAppsViewController: UICollectionViewDelegateFlowLayout {
     ) -> CGSize {
         return CGSize(
             width: view.bounds.width,
-            height: min(210, view.bounds.height * 0.42)
+            height: min(240, view.bounds.height * 0.56)
         )
     }
 }
-
 #endif
 

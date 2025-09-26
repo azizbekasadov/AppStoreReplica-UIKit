@@ -84,14 +84,17 @@ final class AppCell: UICollectionViewCell {
         
         if let name = appModel.name {
             titleLabel.text = name
+            titleLabel.sizeToFit()
         }
         
         if let subTitle = appModel.category {
             subTitleLabel.text = subTitle
+            subTitleLabel.sizeToFit()
         }
         
         if let price = appModel.price {
             priceLabel.text = price > 0 ? price.formatted(.currency(code: "CHF")) : "Free"
+            priceLabel.sizeToFit()
         }
     }
     

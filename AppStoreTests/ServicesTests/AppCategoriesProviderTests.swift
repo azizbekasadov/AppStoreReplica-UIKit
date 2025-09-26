@@ -33,7 +33,6 @@ final class AppCategoriesProviderTests: XCTestCase {
         let categories = try await sut.fetchAppCategories()
         
         XCTAssertNotEqual(categories.count, 0)
-        XCTAssertTrue(categories.allSatisfy { AppCategory.mock.contains(where: <#T##(AppCategory) throws -> Bool#>) })
     }
 }
 

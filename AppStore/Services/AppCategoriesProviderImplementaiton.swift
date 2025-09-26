@@ -59,7 +59,37 @@ extension AppCategory {
             )
             
             return bestApps
-        }()
+        }(),
+        {
+            let bestApps = AppCategory(
+                name: "Top in Switzerland",
+                app: [
+                    AppModel(
+                        id: 0,
+                        name: "Telepaint",
+                        imageName: "frozen",
+                        category: "Games",
+                        price: 2.99
+                    ),
+                    AppModel(
+                        id: 0,
+                        name: "Dirac",
+                        imageName: "frozen",
+                        category: "Games",
+                        price: 3.99
+                    ),
+                    AppModel(
+                        id: 0,
+                        name: "Lorem Ipsum Lorem Ipsum Lorem Ipsum",
+                        imageName: "frozen",
+                        category: "Games",
+                        price: 0
+                    )
+                ]
+            )
+            
+            return bestApps
+        }(),
     ]
 }
 
@@ -67,7 +97,7 @@ final actor AppCategoriesProviderImplementation: AppCategoriesProvider {
     private let source: AppCategoriesProviderSource
     private let networkService = AppCategoriesNetworkService()
     
-    init(source: AppCategoriesProviderSource = .server) {
+    init(source: AppCategoriesProviderSource = .local) {
         self.source = source
     }
     
