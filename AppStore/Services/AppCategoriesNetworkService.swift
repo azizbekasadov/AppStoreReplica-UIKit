@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ASNetwork
 
 final actor AppCategoriesNetworkService {
     private let apiClientService: APIClientService
