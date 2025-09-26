@@ -62,7 +62,7 @@ extension FeatureAppsViewController {
             withReuseIdentifier: CategoryCell.cellid,
             for: indexPath
         ) as! CategoryCell
-        
+        cell.setAppCategory(viewModel.appCategories[indexPath.item])
         return cell
     }
     

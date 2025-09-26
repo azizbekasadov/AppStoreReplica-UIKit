@@ -9,5 +9,5 @@ import Foundation
 
 struct AppCategory: Codable {
     let name: String?
-    let app: [AppModel]?
+    let app: [AppModel] 
 }

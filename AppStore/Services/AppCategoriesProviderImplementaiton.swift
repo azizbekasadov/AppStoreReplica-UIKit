@@ -29,6 +29,36 @@ fileprivate extension AppCategory {
             )
             
             return bestApps
+        }(),
+        {
+            let bestApps = AppCategory(
+                name: "Best New Games",
+                app: [
+                    AppModel(
+                        id: 0,
+                        name: "Telepaint",
+                        imageName: "frozen",
+                        category: "Games",
+                        price: 2.99
+                    ),
+                    AppModel(
+                        id: 0,
+                        name: "Dirac",
+                        imageName: "frozen",
+                        category: "Games",
+                        price: 3.99
+                    ),
+                    AppModel(
+                        id: 0,
+                        name: "Clash Royale",
+                        imageName: "frozen",
+                        category: "Games",
+                        price: 0
+                    )
+                ]
+            )
+            
+            return bestApps
         }()
     ]
 }

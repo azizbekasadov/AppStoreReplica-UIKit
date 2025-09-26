@@ -15,9 +15,6 @@ final class AppCell: UICollectionViewCell {
     
     private let imageView: UIImageView = {
         let imageView = UIImageView()
-        #if DEBUG
-        imageView.image = UIImage(named: "frozen")
-        #endif
         imageView.contentMode = .scaleAspectFill
         imageView.layer.cornerRadius = 16
         imageView.layer.masksToBounds = true
@@ -27,9 +24,6 @@ final class AppCell: UICollectionViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        #if DEBUG
-        label.text = "Hello World!"
-        #endif
         label.font = UIFont.systemFont(
             ofSize: 14,
             weight: .medium
@@ -43,9 +37,6 @@ final class AppCell: UICollectionViewCell {
     
     private let subTitleLabel: UILabel = {
         let label = UILabel()
-        #if DEBUG
-        label.text = "Hello World!"
-        #endif
         label.font = UIFont.systemFont(
             ofSize: 13,
             weight: .medium
@@ -59,9 +50,6 @@ final class AppCell: UICollectionViewCell {
     
     private let priceLabel: UILabel = {
         let label = UILabel()
-        #if DEBUG
-        label.text = "45.- CHF"
-        #endif
         label.font = UIFont.systemFont(
             ofSize: 13,
             weight: .medium
@@ -73,6 +61,8 @@ final class AppCell: UICollectionViewCell {
         return label
     }()
     
+    private var data: AppModel!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -83,6 +73,26 @@ final class AppCell: UICollectionViewCell {
         super.init(coder: coder)
         
         fatalError("Use Code only")
+    }
+    
+    func setAppModel(_ appModel: AppModel) {
+        self.data = appModel
+        
+        if let imageName = appModel.imageName {
+            imageView.image = UIImage(named: imageName)
+        }
+        
+        if let name = appModel.name {
+            titleLabel.text = name
+        }
+        
+        if let subTitle = appModel.category {
+            subTitleLabel.text = subTitle
+        }
+        
+        if let price = appModel.price {
+            priceLabel.text = price > 0 ? price.formatted(.currency(code: "CHF")) : "Free"
+        }
     }
     
     private func setupViews() {

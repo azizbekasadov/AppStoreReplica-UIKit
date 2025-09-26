@@ -15,9 +15,6 @@ final class CategoryCell: UICollectionViewCell {
     
     private let titleLabel: UILabel = {
         let label = UILabel()
-        #if DEBUG
-        label.text = "Hello World!"
-        #endif
         label.font = UIFont.systemFont(
             ofSize: 16,
             weight: .medium
@@ -36,6 +33,7 @@ final class CategoryCell: UICollectionViewCell {
             frame: .zero,
             collectionViewLayout: layout
         )
+        cv.alwaysBounceHorizontal = true
         cv.showsHorizontalScrollIndicator = false
         cv.delegate = self
         cv.dataSource = self
@@ -51,6 +49,8 @@ final class CategoryCell: UICollectionViewCell {
         return v
     }()
     
+    private var appCategory: AppCategory!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -61,6 +61,13 @@ final class CategoryCell: UICollectionViewCell {
         super.init(coder: coder)
         
         fatalError("Use Code only")
+    }
+    
+    func setAppCategory(_ appCategory: AppCategory) {
+        self.appCategory = appCategory
+        
+        titleLabel.text = appCategory.name
+        appsCollectionView.reloadData()
     }
     
     private func setupViews() {
@@ -85,7 +92,6 @@ final class CategoryCell: UICollectionViewCell {
                 views: ["v0":appsCollectionView]
             )
         )
-        
         
         contentView.addConstraints(
             NSLayoutConstraint.constraints(
@@ -137,14 +143,16 @@ extension CategoryCell: UICollectionViewDataSource {
         _ collectionView: UICollectionView,
         numberOfItemsInSection section: Int
     ) -> Int {
-        return 5
+        return appCategory.app.count
     }
     
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        return collectionView.dequeueReusableCell(withReuseIdentifier: AppCell.cellid, for: indexPath) as! AppCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AppCell.cellid, for: indexPath) as! AppCell
+        cell.setAppModel(appCategory.app[indexPath.item])
+        return cell
     }
 }
 
