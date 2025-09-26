@@ -24,6 +24,7 @@ final class FeatureAppsViewController: UICollectionViewController {
     
     private func setupViews() {
         collectionView.backgroundColor = UIColor.white
+        collectionView.alwaysBounceVertical = true
         
         navigationItem.title = "Featured"
     }

@@ -7,7 +7,11 @@
 
 import Foundation
 
-struct AppCategory: Codable {
+struct AppCategory: Equatable, Codable {
     let name: String?
-    let app: [AppModel] 
+    let app: [AppModel]
+    
+    static func == (lhs: AppCategory, rhs: AppCategory) -> Bool {
+        lhs.name == rhs.name
+    }
 }

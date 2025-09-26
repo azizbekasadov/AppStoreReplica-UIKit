@@ -152,7 +152,7 @@ final class AppCell: UICollectionViewCell {
         
         contentView.addConstraints(
             NSLayoutConstraint.constraints(
-                withVisualFormat: "V:|[v0][v1][v2][v3]|",
+                withVisualFormat: "V:|[v0]-5-[v1]-2-[v2]-2-[v3]",
                 options: [],
                 metrics: nil,
                 views: [

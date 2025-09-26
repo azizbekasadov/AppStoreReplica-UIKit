@@ -6,8 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		5D8E623E2E860F2E00BDEA1B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5D8E61FA2E85F90500BDEA1B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D8E62012E85F90500BDEA1B;
+			remoteInfo = AppStore;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5D8E62022E85F90500BDEA1B /* AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D8E623A2E860F2E00BDEA1B /* AppStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppStoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -17,6 +28,13 @@
 				Resources/Info.plist,
 			);
 			target = 5D8E62012E85F90500BDEA1B /* AppStore */;
+		};
+		5D8E62552E8618EC00BDEA1B /* Exceptions for "AppStoreTests" folder in "AppStoreTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 5D8E62392E860F2E00BDEA1B /* AppStoreTests */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -29,10 +47,25 @@
 			path = AppStore;
 			sourceTree = "<group>";
 		};
+		5D8E623B2E860F2E00BDEA1B /* AppStoreTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				5D8E62552E8618EC00BDEA1B /* Exceptions for "AppStoreTests" folder in "AppStoreTests" target */,
+			);
+			path = AppStoreTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		5D8E61FF2E85F90500BDEA1B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D8E62372E860F2E00BDEA1B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -46,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				5D8E62042E85F90500BDEA1B /* AppStore */,
+				5D8E623B2E860F2E00BDEA1B /* AppStoreTests */,
 				5D8E62032E85F90500BDEA1B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				5D8E62022E85F90500BDEA1B /* AppStore.app */,
+				5D8E623A2E860F2E00BDEA1B /* AppStoreTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -83,6 +118,29 @@
 			productReference = 5D8E62022E85F90500BDEA1B /* AppStore.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5D8E62392E860F2E00BDEA1B /* AppStoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D8E62402E860F2E00BDEA1B /* Build configuration list for PBXNativeTarget "AppStoreTests" */;
+			buildPhases = (
+				5D8E62362E860F2E00BDEA1B /* Sources */,
+				5D8E62372E860F2E00BDEA1B /* Frameworks */,
+				5D8E62382E860F2E00BDEA1B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5D8E623F2E860F2E00BDEA1B /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				5D8E623B2E860F2E00BDEA1B /* AppStoreTests */,
+			);
+			name = AppStoreTests;
+			packageProductDependencies = (
+			);
+			productName = AppStoreTests;
+			productReference = 5D8E623A2E860F2E00BDEA1B /* AppStoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -95,6 +153,10 @@
 				TargetAttributes = {
 					5D8E62012E85F90500BDEA1B = {
 						CreatedOnToolsVersion = 16.3;
+					};
+					5D8E62392E860F2E00BDEA1B = {
+						CreatedOnToolsVersion = 16.3;
+						TestTargetID = 5D8E62012E85F90500BDEA1B;
 					};
 				};
 			};
@@ -113,12 +175,20 @@
 			projectRoot = "";
 			targets = (
 				5D8E62012E85F90500BDEA1B /* AppStore */,
+				5D8E62392E860F2E00BDEA1B /* AppStoreTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5D8E62002E85F90500BDEA1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D8E62382E860F2E00BDEA1B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -135,7 +205,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5D8E62362E860F2E00BDEA1B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5D8E623F2E860F2E00BDEA1B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5D8E62012E85F90500BDEA1B /* AppStore */;
+			targetProxy = 5D8E623E2E860F2E00BDEA1B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		5D8E62162E85F90600BDEA1B /* Debug */ = {
@@ -315,6 +400,44 @@
 			};
 			name = Release;
 		};
+		5D8E62412E860F2E00BDEA1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7FCTC6DRE7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AppStoreTests/Info.plist;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.azizbekasadov.AppStoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppStore.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AppStore";
+			};
+			name = Debug;
+		};
+		5D8E62422E860F2E00BDEA1B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 7FCTC6DRE7;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = AppStoreTests/Info.plist;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.azizbekasadov.AppStoreTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AppStore.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AppStore";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -332,6 +455,15 @@
 			buildConfigurations = (
 				5D8E62162E85F90600BDEA1B /* Debug */,
 				5D8E62172E85F90600BDEA1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D8E62402E860F2E00BDEA1B /* Build configuration list for PBXNativeTarget "AppStoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D8E62412E860F2E00BDEA1B /* Debug */,
+				5D8E62422E860F2E00BDEA1B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

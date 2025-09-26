@@ -45,7 +45,7 @@ final class CategoryCell: UICollectionViewCell {
     private lazy var dividerLine: UIView = {
         let v = UIView()
         v.translatesAutoresizingMaskIntoConstraints = false
-        v.backgroundColor = UIColor.darkGray
+        v.backgroundColor = UIColor.lightGray
         return v
     }()
     
@@ -104,7 +104,7 @@ final class CategoryCell: UICollectionViewCell {
         
         contentView.addConstraints(
             NSLayoutConstraint.constraints(
-                withVisualFormat: "V:|[v0(30)]-3-[v1]-10-[v2(0.5)]|",
+                withVisualFormat: "V:|[v0(30)]-3-[v1]-10-[v2(0.35)]|",
                 options: [],
                 metrics: nil,
                 views: [
